@@ -40,6 +40,24 @@ class ContactHelper {
     });
   }
 
+  Future<Contact> saveContact(Contact contact) async {
+    Database dbContact = await db;
+    contact.id = await dbContact.insert(CONTACT_TABLE, contact.toMap());
+
+    return contact;
+  }
+
+  Future<Contact> getContact(int id) async {
+    Database dbContact = await db;
+    List<Map> maps = await dbContact.query(CONTACT_TABLE, columns: [ID_COLUMN, NAME_COLUMN, EMAIL_COLUMN, PHONE_COLUMN, EMAIL_COLUMN], where: '$ID_COLUMN = ?', whereArgs: [id]);
+
+    if (maps.length > 0)
+      return Contact.fromMap(maps.first);
+    else
+      return null;
+
+  }
+
 }
 
 class Contact {
