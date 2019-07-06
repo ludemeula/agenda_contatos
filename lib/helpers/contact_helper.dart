@@ -98,6 +98,8 @@ class Contact {
   String phone;
   String image;
 
+  Contact ();
+
   Contact.fromMap(Map map) {
     id = map[ID_COLUMN];
     name = map[NAME_COLUMN];
