@@ -11,20 +11,17 @@ class _HomePageState extends State<HomePage> {
   ContactHelper helper = ContactHelper();
 
   @override
-  void initState() {
-    super.initState();
-
-    Contact contact = Contact();
-    contact.name = 'Lud';
-    contact.email = 'lude@email.com';
-    contact.phone = '887788';
-    contact.image = 'c/ww';
-
-    helper.saveContact(contact);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Contatos'),
+        backgroundColor: Colors.red,
+        centerTitle: true,
+      ),
+      backgroundColor: Colors.white,
+      floatingActionButton: FloatingActionButton(onPressed: (){},
+      child: Icon(Icons.add),
+      backgroundColor: Colors.red,),
+    );
   }
 }
