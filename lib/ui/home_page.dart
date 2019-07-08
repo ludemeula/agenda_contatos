@@ -42,4 +42,24 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  Widget _contatctCard(BuildContext context, int index) {
+    return GestureDetector(
+      child: Card(
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: Row(
+            children: <Widget>[
+              Container(
+                width: 80,
+                height: 80,
+                //decoration: BoxShape.circle,
+                //image: DecorationImage
+              )
+            ],
+          ),
+        ),
+      ),
+    )
+  }
 }
