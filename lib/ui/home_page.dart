@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:agenda_contatos/helpers/contact_helper.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +37,7 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Color(0xff4dd0e1)),
       body: ListView.builder(
         itemBuilder: (context, index) {
-          
+
         },
         itemCount: contacts.length,
         padding: EdgeInsets.all(10),
@@ -53,13 +55,29 @@ class _HomePageState extends State<HomePage> {
               Container(
                 width: 80,
                 height: 80,
-                //decoration: BoxShape.circle,
-                //image: DecorationImage
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: contacts[index].image != null ? FileImage(
+                            File(contacts[index].image)) : AssetImage(
+                            'images/icon-person.png')
+                    )
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: <Widget>[
+                    Text(contacts[index].name ?? '', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                    Text(contacts[index].email ?? '', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                    Text(contacts[index].phone ?? '', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
+                  ],
+                ),
               )
             ],
           ),
         ),
       ),
-    )
+    );
   }
 }
