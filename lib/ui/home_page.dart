@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Color(0xff4dd0e1)),
       body: ListView.builder(
         itemBuilder: (context, index) {
-
+          return _contatctCard(context, index);
         },
         itemCount: contacts.length,
         padding: EdgeInsets.all(10),
@@ -65,12 +65,13 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(left: 10),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(contacts[index].name ?? '', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                    Text(contacts[index].email ?? '', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                    Text(contacts[index].phone ?? '', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
+                    Text(contacts[index].email ?? '', style: TextStyle(fontSize: 18)),
+                    Text(contacts[index].phone ?? '', style: TextStyle(fontSize: 18))
                   ],
                 ),
               )
